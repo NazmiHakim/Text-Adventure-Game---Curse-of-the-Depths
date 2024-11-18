@@ -1,7 +1,3 @@
-Here's a suggested `README.md` file for version 1.2 of your game project:
-
----
-
 # Adventure Game - Version 1.2
 
 ## Overview
