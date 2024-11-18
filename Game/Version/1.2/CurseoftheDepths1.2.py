@@ -201,7 +201,7 @@ def blacksmith(character):
                         if character.gold >= legging['price']:
                             character.gold -= legging['price']
                             character.add_to_inventory(legging)
-                            character.self_weapon(legging)
+                            character.equip_armor(legging)
                             print(f"You bought the {weapon['name']} and equipped it!")
                         else:
                             print("You don't have enough gold.")
@@ -294,9 +294,9 @@ def main():
             place = input("Where do you want to go?")
             if place == '1':
                 fight(player, "forest")
-            elif place == '1':
+            elif place == '2':
                 fight(player, "cave")
-            elif place == '1':
+            elif place == '3':
                 fight(player, "mountains")
         elif choice == '2':
             tavern(player)
