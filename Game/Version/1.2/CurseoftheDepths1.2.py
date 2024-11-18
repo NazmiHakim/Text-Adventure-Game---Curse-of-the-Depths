@@ -212,38 +212,6 @@ def blacksmith(character):
         else:
             print("Invalid choice.")
 
-def fight(character, monster):
-    print(f"{monster['name']} Appears!")
-    monster_health = monster['health']  # Store the original health of the monster
-    while character.health > 0 and monster_health > 0:
-        action = input("Attack (A) or Run (R) : ").lower()
-        if action == 'a':
-            damage = max(0, character.attack - monster['defense'])
-            monster_health -= damage
-            print(f"The {monster['name']} takes {damage} damage!")
-        
-            if monster_health > 0:
-                monsterdamage = max(0, monster['attack'] - character.defense)
-                character.health -= monsterdamage
-                print(f"You take {monsterdamage} damage!")
-            else:
-                print(f"You have defeated {monster['name']}!")
-                print(f"You got {monster['gold']} gold from the {monster['name']}")
-                character.level_up()
-                character.gold += monster_categories['gold']
-                return True
-        elif action == 'r':
-            print(f"You escaped from {monster['name']}.")
-            return False
-
-    # If player is defeated
-    if character.health <= 0:
-        print(f"You have been defeated by {monster['name']}!")
-        character.gold //= 2  # Halve the player's gold
-        character.health = 10  # Set the player's health to 10
-        print(f"Your gold is now {character.gold} and your health is set to 10.")
-        return False
-
 def tavern(character):
     while True:
         print("Welcome to the Tavern!")
